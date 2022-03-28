@@ -1,38 +1,149 @@
-.App {
-  text-align: center;
+:root {
+  --font-color: rgba(255,255,255, .7);
+  --bg-color: #084ACD;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--font-color);
+  font-weight: 700;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html, body {
+  background-color: var(--bg-color);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.btn {
+  border: none;
+  padding: 1rem 1.8rem;
+  background-color: var(--font-color);
+  color: var(--bg-color);
+}
+
+.btn.sm {
+  padding: .4rem;
+}
+
+.btn.plain {
+  padding: .5rem;
+  font-weight: bold;
+}
+
+.chat-window {
+  height: 40rem;
+  padding-inline: 3rem;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: flex-end;
+}
+
+.spacer {
+  height: 2px;
+  border: 2px solid var(--font-color);
+  margin-block: 2rem;
+}
+
+form {
+  flex: 2;
+}
+
+form .form-group {
+  display: flex;
+  padding-block: .32rem;
+}
+
+form .form-group {
+  padding: .6rem;
+}
+
+form .form-group label {
+  margin-right: .5rem;
+  width: 7rem;
+}
+
+form .form-group input {
+  background-color: transparent;
+  border: none;
+  color: var(--font-color);
+  caret-color: var(--font-color);
+  outline: none;
+  width: 100%;
+  border-bottom: 1px solid var(--font-color);
+  font-size: 1.01rem;
+  padding-inline: .3rem;
+}
+
+form .form-buttons {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.chat-form {
+  margin-right: .3rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form.chat-form .form-group{
+  padding: 0;
+}
+
+form.chat-form .form-group label {
+  width: max-content;
+}
+
+.message {
+  display: grid;
+  grid-template-columns: 10rem auto;
+  margin-bottom: .3rem;
+}
+
+.message .name {
+  display: inline-block;
+  width: max-content;
+}
+
+.message .name.received {
+  background-color: var(--font-color);
+}
+
+.message .name.received p {
+  color: var(--bg-color);
+}
+
+.signin, .register {
+  width: max-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin p {
+  margin-bottom: .6rem;
+}
+
+.signin form,
+.register form {
+  margin-bottom: .4rem;
+}
+
+.chatMsgLogout {
+  padding-inline: 2rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.success-msg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
