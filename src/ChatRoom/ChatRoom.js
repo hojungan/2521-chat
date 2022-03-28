@@ -18,10 +18,6 @@ function ChatRoom({ db, auth }) {
   const dummy = useRef();
 
   useEffect(()=> {
-    fetchMessages();
-  }, [])
-
-  const fetchMessages = async () => {
     const q = query(collection(db, "messages"), orderBy("createdAt"));
     onSnapshot(q, (querySnapshot) => {
       let msgs = []
@@ -30,7 +26,7 @@ function ChatRoom({ db, auth }) {
       })
       setMessages(msgs);
     });
-  }
+  }, [db])
 
   const sendMessage = async e => {
     e.preventDefault();
@@ -45,7 +41,9 @@ function ChatRoom({ db, auth }) {
 
     await addDoc(collection(db, "messages"), message);
     setTextMsg("");
-    fetchMessages();
+    // fetchMessages();
+
+    // setMessages([...messages, message])
   };
 
   return (
