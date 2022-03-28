@@ -19,7 +19,7 @@ function ChatRoom({ db, auth }) {
 
   useEffect(()=> {
     fetchMessages();
-  },[])
+  }, [])
 
   const fetchMessages = async () => {
     const q = query(collection(db, "messages"), orderBy("createdAt"));
@@ -29,7 +29,7 @@ function ChatRoom({ db, auth }) {
         msgs.push(doc.data())
       })
       setMessages(msgs);
-    })
+    });
   }
 
   const sendMessage = async e => {
@@ -44,13 +44,8 @@ function ChatRoom({ db, auth }) {
     }
 
     await addDoc(collection(db, "messages"), message);
-    
-    fetchMessages();
-
-
-    // setMessages([...messages, message])
     setTextMsg("");
-    // dummy.current.scrollIntoView({ behavior: "smooth" });
+    fetchMessages();
   };
 
   return (
