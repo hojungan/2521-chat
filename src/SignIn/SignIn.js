@@ -21,6 +21,7 @@ function SignIn({ auth, db }) {
         setErrorMsg("닉네임 또는 비밀번호가 일치하지 않습니다");
       }
     } else {
+      setErrorMsg("존재하지 않는 닉네임 입니다.");
     }
   };
 
