@@ -17,11 +17,8 @@ function SignIn({ auth, db }) {
       // check password by sigining in with email and password
       try {
         await signInWithEmailAndPassword(auth, docRef.data().email, password);
-
-        // setUser(auth.currentUser);
       } catch (err) {
-        // setUser(null);
-        setErrorMsg("Username or password is incorrect");
+        setErrorMsg("닉네임 또는 비밀번호가 일치하지 않습니다");
       }
     } else {
     }
@@ -30,6 +27,11 @@ function SignIn({ auth, db }) {
   return (
     <div className="signin">
       <p>로그인후 채팅방을 입장할수 있습니다</p>
+
+      {errorMsg &&
+        <p>
+          {errorMsg}
+        </p>}
 
       <form onSubmit={handleSignIn}>
         <div className="form-group">
