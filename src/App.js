@@ -4,7 +4,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 import ChatRoom from "./ChatRoom/ChatRoom";
 import SignIn from "./SignIn/SignIn";
-import { useState } from "react";
 
 function App({ db, auth }) {
   const [user] = useAuthState(auth);
